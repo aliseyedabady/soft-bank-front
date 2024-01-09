@@ -10,7 +10,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
       <Sidebar />
       <div className="xl:mr-[250px] mr-0">
         <Header />
-        <div className="bg-white-200 h-[calc(100vh-105px)] px-10 pt-6">
+        <div className="bg-white-200 h-[calc(100vh-105px)] px-10 pt-6 min-h-screen">
           {children}
         </div>
       </div>

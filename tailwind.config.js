@@ -9,6 +9,7 @@ module.exports = {
           100: "#E6EFF5",
           200: "#F5F7FA",
           300: "#ffffffb3",
+          400: "#F4F5F7",
         },
         primary: "#2D60FF",
         secondary: "#505887",

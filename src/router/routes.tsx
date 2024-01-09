@@ -3,7 +3,7 @@ import { lazy } from "react";
 const Dashboard = lazy(() => import("../pages/dashboard"));
 const MainLayout = lazy(() => import("../layouts/main"));
 const Accounts = lazy(() => import("../pages/accounts"));
-const Transactions = lazy(() => import("../pages/transactions"));
+const Transactions = lazy(() => import("../pages/transactions/index"));
 const Investments = lazy(() => import("../pages/investments"));
 const Settings = lazy(() => import("../pages/setting"));
 const Loans = lazy(() => import("../pages/loans"));

@@ -1,81 +1,88 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../../components/card";
 import IconWrapper from "../../components/iconWrapper";
+import ColumnChart from "../../components/charts/column/index";
+import PieChart from "../../components/charts/pie";
+import pusherJs from "pusher-js";
 
 const Dashboard = () => {
   return (
     <div>
       <div className="grid grid-cols-3 gap-[30px]">
-        <div className="col-span-2">
+        <div className="md:col-span-2 col-span-3">
           <div className="flex items-center justify-between  mb-5">
             <h4 className="text-[22px] text-text font-semibold">کارت های من</h4>
             <p className="text-[17px] text-text font-semibold">مشاهده همه</p>
           </div>
           <div className="grid grid-cols-2 gap-[30px]">
-            <Card
-              wrapperClassName="orange-gradient"
-              footerClassName="orange-light-gradient"
-              bolt={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="44"
-                  height="30"
-                  viewBox="0 0 44 30"
-                  fill="none"
-                >
-                  <circle
-                    cx="15"
-                    cy="15"
-                    r="15"
-                    fill="white"
-                    fill-opacity="0.5"
-                  />
-                  <circle
-                    cx="29"
-                    cy="15"
-                    r="15"
-                    fill="white"
-                    fill-opacity="0.5"
-                  />
-                </svg>
-              }
-              icon={require("../../assets/images/chip-img-1.png")}
-            />
-            <Card
-              bolt={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="44"
-                  height="30"
-                  viewBox="0 0 44 30"
-                  fill="none"
-                >
-                  <circle
-                    cx="15"
-                    cy="15"
-                    r="15"
-                    fill="#9199AF"
-                    fill-opacity="0.5"
-                  />
-                  <circle
-                    cx="29"
-                    cy="15"
-                    r="15"
-                    fill="#9199AF"
-                    fill-opacity="0.5"
-                  />
-                </svg>
-              }
-              keyClassName="!text-text-100"
-              valueClassName="!text-text"
-              footerClassName="bg-white border-t border-t-[#DFEAF2]"
-              wrapperClassName="bg-white border border-[#DFEAF2]"
-              cardNumberClassName="!text-text"
-              icon={require("../../assets/images/chip-img-2.png")}
-            />
+            <div className="col-span-2 md:col-span-1">
+              <Card
+                wrapperClassName="orange-gradient"
+                footerClassName="orange-light-gradient"
+                bolt={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="44"
+                    height="30"
+                    viewBox="0 0 44 30"
+                    fill="none"
+                  >
+                    <circle
+                      cx="15"
+                      cy="15"
+                      r="15"
+                      fill="white"
+                      fill-opacity="0.5"
+                    />
+                    <circle
+                      cx="29"
+                      cy="15"
+                      r="15"
+                      fill="white"
+                      fill-opacity="0.5"
+                    />
+                  </svg>
+                }
+                icon={require("../../assets/images/chip-img-1.png")}
+              />
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <Card
+                bolt={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="44"
+                    height="30"
+                    viewBox="0 0 44 30"
+                    fill="none"
+                  >
+                    <circle
+                      cx="15"
+                      cy="15"
+                      r="15"
+                      fill="#9199AF"
+                      fill-opacity="0.5"
+                    />
+                    <circle
+                      cx="29"
+                      cy="15"
+                      r="15"
+                      fill="#9199AF"
+                      fill-opacity="0.5"
+                    />
+                  </svg>
+                }
+                keyClassName="!text-text-100"
+                valueClassName="!text-text"
+                footerClassName="bg-white border-t border-t-[#DFEAF2]"
+                wrapperClassName="bg-white border border-[#DFEAF2]"
+                cardNumberClassName="!text-text"
+                icon={require("../../assets/images/chip-img-2.png")}
+              />
+            </div>
           </div>
         </div>
-        <div>
+        <div className="md:col-span-1 col-span-3">
           <h4 className="text-[22px] text-text font-semibold mb-5">
             تراکنش های اخیر
           </h4>
@@ -172,6 +179,24 @@ const Dashboard = () => {
               </div>
               <p className="text-red text-[11px] font-medium">-125/000</p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 mt-6 gap-[30px]">
+        <div className="md:col-span-2 col-span-3">
+          <h4 className="text-text text-[22px] font-semibold mb-[18px]">
+            فعالیت شما
+          </h4>
+          <div className="bg-white rounded-[25px] p-8">
+            <ColumnChart />
+          </div>
+        </div>
+        <div className="md:col-span-1 col-span-3">
+          <h4 className="text-text text-[22px] font-semibold mb-[18px]">
+            آمار هزینه
+          </h4>
+          <div className="bg-white rounded-[25px] p-8">
+            <PieChart />
           </div>
         </div>
       </div>
